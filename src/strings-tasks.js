@@ -179,8 +179,13 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const index = str.lastIndexOf(value);
+  let out = str;
+  if (index !== -1) {
+    out = str.slice(0, index) + str.slice(index + value.length);
+  }
+  return out;
 }
 
 /**
@@ -195,8 +200,15 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  let sum = 0;
+  if (str) {
+    const arr = str.split('');
+    arr.forEach((element) => {
+      sum += element.charCodeAt();
+    });
+  }
+  return sum;
 }
 
 /**
